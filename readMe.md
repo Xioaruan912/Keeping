@@ -8,7 +8,7 @@ golang 开发学习的木马和CS客户端
 
 简易版 研招网爬虫 默认爬取网络安全专业
 
-## PRoxy_Py
+## PRoxy_Py(废案)
 
 Python编写代理池
 
