@@ -26,4 +26,12 @@ Accept-Language: zh-CN,zh;q=0.9
 Connection: keep-alive
 ```
 
-即可发送代理访问
+即可发送代理访问 主要参数如下
+
+如果需要其他参数 添加在请求头即可
+
+```
+Original-Url : https://baidu.com
+IP:http://127.0.0.1:7897
+```
+
