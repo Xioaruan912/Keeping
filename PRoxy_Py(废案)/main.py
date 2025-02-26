@@ -6,8 +6,6 @@ from loguru import logger
 from spider.main_spider import main_spider, clean_json_string
 
 app = Flask(__name__)
-
-
 @app.route('/search', methods=['POST'])
 def search():
     data = request.get_json()

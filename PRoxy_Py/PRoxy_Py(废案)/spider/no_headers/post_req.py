@@ -7,29 +7,21 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
-def need_header_post(url, post_data, proxy, headers_str):
-    logger.info("开始访问web:" + url)
+def main_post_request(url, post_data, proxy):
+    logger.info("开始访问web:"+ url)
     random_proxy = random.choice(proxy)
-    logger.info("随机选取Proxy:" + random_proxy)
+    logger.info("随机选取Proxy:"+ random_proxy)
     proxies = {
         "http": f"http://{random_proxy}",
         "https": f"http://{random_proxy}"
     }
-
     # proxies = {'http': 'http://127.0.0.1:8080', 'https': 'http://127.0.0.1:8080'}
-    # 处理请求头
-    headers = {}
-    try:
-        pairs = headers_str.strip('"').split('","')
-        for pair in pairs:
-            if ':' in pair:
-                key, value = pair.split(':', 1)
-                key = key.strip().strip('"')
-                value = value.strip().strip('"')
-                headers[key] = value
-    except Exception as e:
-        pass
-
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+                      'AppleWebKit/537.36 (KHTML, like Gecko) '
+                      'Chrome/115.0.0.0 Safari/537.36 Edg/115.0.0.0',
+        'Content-Type': 'application/json'
+    }
 
     logger.info("开始发送请求")
     # 发送请求
