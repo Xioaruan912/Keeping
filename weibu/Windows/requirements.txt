@@ -1,0 +1,8 @@
+loguru==0.7.3
+opencv_python==4.11.0.86
+Requests==2.32.3
+selenium==4.28.1
+selenium_wire==5.1.0
+webdriver_manager==4.0.2
+blinker==1.7.0
+flask==3.1.0
