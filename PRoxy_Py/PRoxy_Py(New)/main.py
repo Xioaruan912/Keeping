@@ -13,28 +13,34 @@ def rebuild_headers(headers):
         'content-length',
         'transfer-encoding',
         'connection',
-        'host'
+        'host',
+        'target',
+        'ip',
     ]
-    return {
+    filtered_headers = {
         key: value for key, value in headers.items()
         if key.lower() not in excluded_headers
     }
+    print("过滤后的头部信息:", filtered_headers)
+
+    return filtered_headers
 
 @app.route('/', defaults={'path': ''}, methods=['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'])
 @app.route('/<path:path>', methods=['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'])
 def proxy(path):
     try:
-        original_url = request.headers.get('Original-Url')
+        original_url = request.headers.get('target')
         ip = request.headers.get('IP')
         if not original_url:
-            logger.error("缺少 Original-Url 头部")
-            return "缺少 Original-Url 头部", 400
+            logger.error("缺少 target 头部")
+            return "缺少 target 头部", 400
         if not ip:
             logger.error("缺少 IP 头部")
             return "缺少 IP 头部", 400
 
         method = request.method
         headers = rebuild_headers(dict(request.headers))
+        logger.debug(headers)
         data = request.get_data() if method != 'GET' else None  # 仅在非GET请求时获取数据
         params = request.args
 
@@ -45,9 +51,9 @@ def proxy(path):
 
         logger.info(f"转发 {method} 请求到: {original_url}")
         logger.info(f"使用代理: {proxies}")
-        logger.info(f"请求头: {headers}")
-        logger.debug(f"请求体: {data}")
-        logger.debug(f"请求参数: {params}")
+        # logger.info(f"请求头: {headers}")
+        # logger.debug(f"请求体: {data}")
+        # logger.debug(f"请求参数: {params}")
 
         response = requests.request(
             method=method,
