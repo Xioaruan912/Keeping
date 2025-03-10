@@ -1,0 +1,2 @@
+2025-03-10 08:39:22.541 | INFO     | __main__:<module>:15 - 日志配置成功，日志文件路径: C:\Users\Administrator\Desktop\Keeping-main\PRoxy_Py\PRoxy_Py(New)\app.log
+2025-03-10 08:39:22.544 | SUCCESS  | __main__:read_setting_json:54 - 配置文件存在：C:\Users\Administrator\Desktop\Keeping-main\PRoxy_Py\PRoxy_Py(New)\setting.json

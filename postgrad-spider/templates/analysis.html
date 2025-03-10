@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大学招生数据分析</title>
+    <!-- 引入 ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #chart {
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>大学招生数据分析</h1>
+<!-- 图表容器 -->
+<div id="chart"></div>
+
+<script>
+    // 提取字符串中的数字
+    function extractNumber(str) {
+        const match = str.match(/\d+/);  // 正则表达式提取数字
+        return match ? parseInt(match[0], 10) : 0;  // 如果找到数字，则返回整数，否则返回 0
+    }
+
+    // 获取数据
+    fetch('/data')  // 从你的 Flask 路由 `/data` 获取数据
+        .then(response => response.json())
+        .then(data => {
+            // 提取大学名称和拟招收人数字符串
+            let universityData = data.map(item => {
+                const universityName = item[1];  // 提取大学名称
+                const admissionsStr = item[3]["拟招收人数str"] || "无数据";  // 提取拟招收人数str，或默认 "无数据"
+                const admissionsNum = extractNumber(admissionsStr);  // 提取拟招收人数中的数字
+                return {
+                    name: universityName,
+                    admissionsStr: admissionsStr,
+                    admissionsNum: admissionsNum  // 保存提取的数字用于排序
+                };
+            });
+
+            // 按照提取的数字进行降序排序
+            universityData.sort((a, b) => b.admissionsNum - a.admissionsNum);
+
+            // 获取排序后的大学名称和拟招收人数（数字和字符串）
+            const universityNames = universityData.map(item => item.name);
+            const totalAdmissionsStr = universityData.map(item => item.admissionsStr); // 拟招收人数字符串
+            const totalAdmissionsNum = universityData.map(item => item.admissionsNum); // 拟招收人数数字
+
+            // 初始化图表
+            const chart = echarts.init(document.getElementById('chart'));
+
+            // 图表配置
+            const option = {
+                title: {
+                    text: '各大学拟招收人数统计 (按照数字排序)',
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    formatter: function (params) {
+                        const universityIndex = params[0].dataIndex;
+                        return `${universityNames[universityIndex]}<br/>拟招收人数: ${totalAdmissionsStr[universityIndex]}`;
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: universityNames,
+                    axisLabel: {
+                        rotate: 45,  // 旋转标签以避免重叠
+                        interval: 0  // 强制显示所有标签
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '拟招收人数'
+                },
+                series: [{
+                    name: '拟招收人数 (数字)',
+                    type: 'bar',
+                    data: totalAdmissionsNum,  // 使用拟招收人数数字进行柱状图显示
+                    label: {
+                        show: true,
+                        position: 'top'
+                    }
+                }]
+            };
+
+            // 渲染图表
+            chart.setOption(option);
+        })
+        .catch(error => {
+            console.error('获取数据出错:', error);
+        });
+</script>
+
+</body>
+</html>
