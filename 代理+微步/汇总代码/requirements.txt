@@ -1,8 +1,0 @@
-Flask
-loguru
-opencv_python
-Requests
-selenium
-selenium_wire
-webdriver_manager
-blinker==1.7.0

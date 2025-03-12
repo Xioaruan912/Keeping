@@ -1,0 +1,123 @@
+2025-03-12 16:39:00.821 | INFO     | __main__:setup_logger:37 - 日志配置成功，日志文件路径: C:\Users\Administrator\Desktop\Keeping-main\代理+微步+网站截图\汇总代码\app.log
+2025-03-12 16:39:00.821 | INFO     | __main__:read_setting_json:65 - 配置文件不存在，创建配置文件并使用默认配置。
+2025-03-12 16:39:00.822 | SUCCESS  | __main__:read_setting_json:68 - 已创建配置文件：C:\Users\Administrator\Desktop\Keeping-main\代理+微步+网站截图\汇总代码\setting.json
+2025-03-12 16:39:50.121 | INFO     | __main__:setup_logger:37 - 日志配置成功，日志文件路径: C:\Users\Administrator\Desktop\Keeping-main\代理+微步+网站截图\汇总代码\app.log
+2025-03-12 16:39:50.123 | SUCCESS  | __main__:read_setting_json:56 - 配置文件存在：C:\Users\Administrator\Desktop\Keeping-main\代理+微步+网站截图\汇总代码\setting.json
+2025-03-12 16:40:17.024 | INFO     | __main__:setup_logger:37 - 日志配置成功，日志文件路径: C:\Users\Administrator\Desktop\Keeping-main\代理+微步+网站截图\汇总代码\app.log
+2025-03-12 16:40:17.024 | SUCCESS  | __main__:read_setting_json:56 - 配置文件存在：C:\Users\Administrator\Desktop\Keeping-main\代理+微步+网站截图\汇总代码\setting.json
+2025-03-12 16:40:28.564 | INFO     | picture_function.picture_get:fix_url_protocol:36 - 尝试补全协议: www.baidu.com
+2025-03-12 16:40:28.790 | INFO     | picture_function.picture_get:fix_url_protocol:46 - 可用协议: http://www.baidu.com
+2025-03-12 16:40:28.790 | ERROR    | __main__:capture_website_screenshot:143 - 全局异常: name 'openChrome' is not defined
+2025-03-12 16:41:59.751 | INFO     | __main__:setup_logger:37 - 日志配置成功，日志文件路径: C:\Users\Administrator\Desktop\Keeping-main\代理+微步+网站截图\汇总代码\app.log
+2025-03-12 16:41:59.752 | SUCCESS  | __main__:read_setting_json:56 - 配置文件存在：C:\Users\Administrator\Desktop\Keeping-main\代理+微步+网站截图\汇总代码\setting.json
+2025-03-12 16:42:01.679 | INFO     | picture_function.picture_get:fix_url_protocol:36 - 尝试补全协议: www.baidu.com
+2025-03-12 16:42:01.917 | INFO     | picture_function.picture_get:fix_url_protocol:46 - 可用协议: http://www.baidu.com
+2025-03-12 16:42:01.918 | ERROR    | __main__:capture_website_screenshot:143 - 全局异常: open_Chrome() missing 1 required positional argument: 'password'
+2025-03-12 16:44:52.751 | INFO     | __main__:setup_logger:37 - 日志配置成功，日志文件路径: C:\Users\Administrator\Desktop\Keeping-main\代理+微步+网站截图\汇总代码\app.log
+2025-03-12 16:44:52.751 | SUCCESS  | __main__:read_setting_json:56 - 配置文件存在：C:\Users\Administrator\Desktop\Keeping-main\代理+微步+网站截图\汇总代码\setting.json
+2025-03-12 16:44:54.765 | INFO     | picture_function.picture_get:fix_url_protocol:36 - 尝试补全协议: www.baidu.com
+2025-03-12 16:44:54.968 | INFO     | picture_function.picture_get:fix_url_protocol:46 - 可用协议: http://www.baidu.com
+2025-03-12 16:44:54.969 | INFO     | picture_function.openChrome:open_Chrome_pic:14 - 初始化Chrome
+2025-03-12 16:44:54.969 | INFO     | picture_function.openChrome:open_Chrome_pic:17 - 不存在代理
+2025-03-12 16:44:56.852 | SUCCESS  | picture_function.openChrome:open_Chrome_pic:56 - 初始化成功
+2025-03-12 16:44:56.853 | INFO     | __main__:capture_website_screenshot:126 - 访问 URL: http://www.baidu.com
+2025-03-12 16:45:15.860 | INFO     | picture_function.picture_get:fix_url_protocol:36 - 尝试补全协议: www.baidu.com
+2025-03-12 16:45:16.089 | INFO     | picture_function.picture_get:fix_url_protocol:46 - 可用协议: http://www.baidu.com
+2025-03-12 16:45:16.091 | INFO     | picture_function.openChrome:open_Chrome_pic:14 - 初始化Chrome
+2025-03-12 16:45:16.093 | INFO     | picture_function.openChrome:open_Chrome_pic:17 - 不存在代理
+2025-03-12 16:45:16.093 | INFO     | picture_function.openChrome:open_Chrome_pic:46 - 下载Chromedriver
+2025-03-12 16:46:32.508 | INFO     | picture_function.openChrome:open_Chrome_pic:50 - driver_path : C:\Users\Administrator\.wdm\drivers\chromedriver\win64\134.0.6998.88\chromedriver-win32/chromedriver.exe
+2025-03-12 16:46:32.521 | INFO     | picture_function.openChrome:open_Chrome_pic:52 - 下载至:./Chorme_driver/chromedriver.exe成功
+2025-03-12 16:46:34.962 | SUCCESS  | picture_function.openChrome:open_Chrome_pic:56 - 初始化成功
+2025-03-12 16:46:34.962 | INFO     | __main__:capture_website_screenshot:126 - 访问 URL: http://www.baidu.com
+2025-03-12 16:46:45.383 | INFO     | picture_function.picture_get:fix_url_protocol:36 - 尝试补全协议: www.baidu.com
+2025-03-12 16:46:45.581 | INFO     | picture_function.picture_get:fix_url_protocol:46 - 可用协议: http://www.baidu.com
+2025-03-12 16:46:45.582 | INFO     | picture_function.openChrome:open_Chrome_pic:14 - 初始化Chrome
+2025-03-12 16:46:45.582 | INFO     | picture_function.openChrome:open_Chrome_pic:17 - 不存在代理
+2025-03-12 16:46:47.199 | SUCCESS  | picture_function.openChrome:open_Chrome_pic:56 - 初始化成功
+2025-03-12 16:46:47.199 | INFO     | __main__:capture_website_screenshot:126 - 访问 URL: http://www.baidu.com
+2025-03-12 16:47:03.939 | INFO     | picture_function.picture_get:fix_url_protocol:36 - 尝试补全协议: www.baidu.com
+2025-03-12 16:47:04.162 | INFO     | picture_function.picture_get:fix_url_protocol:46 - 可用协议: http://www.baidu.com
+2025-03-12 16:47:04.162 | INFO     | picture_function.openChrome:open_Chrome_pic:14 - 初始化Chrome
+2025-03-12 16:47:04.163 | INFO     | picture_function.openChrome:open_Chrome_pic:17 - 不存在代理
+2025-03-12 16:47:05.848 | SUCCESS  | picture_function.openChrome:open_Chrome_pic:56 - 初始化成功
+2025-03-12 16:47:05.849 | INFO     | __main__:extract_icon_elements:163 - 正在提取图标: http://www.baidu.com
+2025-03-12 16:47:07.837 | INFO     | __main__:extract_icon_elements:170 - 页面加载完成
+2025-03-12 16:47:07.927 | INFO     | __main__:extract_icon_elements:176 - 图标地址: https://www.baidu.com/favicon.ico
+2025-03-12 16:47:16.186 | INFO     | __main__:extract_icon_elements:185 - 图标加载完成
+2025-03-12 16:47:33.468 | ERROR    | __main__:proxy:264 - 缺少 target 头部
+2025-03-12 16:47:52.165 | ERROR    | __main__:proxy:267 - 缺少 IP 头部
+2025-03-12 16:47:57.155 | INFO     | __main__:proxy:280 - =============时间：2025-03-12 16:47:57============
+2025-03-12 16:47:57.155 | INFO     | __main__:proxy:281 - 转发 POST 请求到: http://172.18.16.72:1234
+2025-03-12 16:47:57.155 | INFO     | __main__:proxy:282 - 使用代理: {'http': '127.0.0.1:7897', 'https': '127.0.0.1:7897'}
+2025-03-12 16:47:57.156 | INFO     | __main__:proxy:283 - 使用头: {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Accept-Language': 'zh-CN,zh;q=0.9', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Upgrade-Insecure-Requests': '1', 'Content-Type': 'application/json'}
+2025-03-12 16:47:57.725 | WARNING  | __main__:not_found:312 - 404 错误: 找不到
+2025-03-12 16:47:57.727 | INFO     | __main__:proxy:294 - 响应状态: 404
+2025-03-12 16:48:13.834 | INFO     | __main__:proxy:280 - =============时间：2025-03-12 16:48:13============
+2025-03-12 16:48:13.834 | INFO     | __main__:proxy:281 - 转发 POST 请求到: http://172.18.16.72:1234/api/icon
+2025-03-12 16:48:13.835 | INFO     | __main__:proxy:282 - 使用代理: {'http': '127.0.0.1:7897', 'https': '127.0.0.1:7897'}
+2025-03-12 16:48:13.835 | INFO     | __main__:proxy:283 - 使用头: {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Accept-Language': 'zh-CN,zh;q=0.9', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Upgrade-Insecure-Requests': '1', 'Content-Type': 'application/json'}
+2025-03-12 16:48:15.088 | INFO     | picture_function.picture_get:fix_url_protocol:36 - 尝试补全协议: www.baidu.com
+2025-03-12 16:48:15.318 | INFO     | picture_function.picture_get:fix_url_protocol:46 - 可用协议: http://www.baidu.com
+2025-03-12 16:48:15.319 | INFO     | picture_function.openChrome:open_Chrome_pic:14 - 初始化Chrome
+2025-03-12 16:48:15.319 | INFO     | picture_function.openChrome:open_Chrome_pic:17 - 不存在代理
+2025-03-12 16:48:16.921 | SUCCESS  | picture_function.openChrome:open_Chrome_pic:56 - 初始化成功
+2025-03-12 16:48:16.921 | INFO     | __main__:extract_icon_elements:163 - 正在提取图标: http://www.baidu.com
+2025-03-12 16:48:18.802 | INFO     | __main__:extract_icon_elements:170 - 页面加载完成
+2025-03-12 16:48:18.850 | INFO     | __main__:extract_icon_elements:176 - 图标地址: https://www.baidu.com/favicon.ico
+2025-03-12 16:48:18.915 | INFO     | __main__:extract_icon_elements:185 - 图标加载完成
+2025-03-12 16:48:21.222 | INFO     | __main__:proxy:294 - 响应状态: 200
+2025-03-12 16:49:40.498 | INFO     | __main__:setup_logger:37 - 日志配置成功，日志文件路径: C:\Users\Administrator\Desktop\Keeping-main\代理+微步+网站截图\汇总代码\app.log
+2025-03-12 16:49:40.498 | SUCCESS  | __main__:read_setting_json:56 - 配置文件存在：C:\Users\Administrator\Desktop\Keeping-main\代理+微步+网站截图\汇总代码\setting.json
+2025-03-12 16:49:59.531 | WARNING  | __main__:not_found:312 - 404 错误: 找不到
+2025-03-12 16:49:59.769 | WARNING  | __main__:not_found:312 - 404 错误: 找不到
+2025-03-12 16:50:21.545 | WARNING  | __main__:not_found:312 - 404 错误: 找不到
+2025-03-12 16:50:21.800 | WARNING  | __main__:not_found:312 - 404 错误: 找不到
+2025-03-12 16:50:28.308 | WARNING  | __main__:not_found:312 - 404 错误: 找不到
+2025-03-12 16:50:28.428 | WARNING  | __main__:not_found:312 - 404 错误: 找不到
+2025-03-12 16:50:31.788 | WARNING  | __main__:not_found:312 - 404 错误: 找不到
+2025-03-12 16:51:02.633 | WARNING  | __main__:not_found:312 - 404 错误: 找不到
+2025-03-12 16:51:13.782 | WARNING  | __main__:not_found:312 - 404 错误: 找不到
+2025-03-12 16:51:25.570 | INFO     | __main__:proxy:280 - =============时间：2025-03-12 16:51:25============
+2025-03-12 16:51:25.570 | INFO     | __main__:proxy:281 - 转发 GET 请求到: http://httpbin.org/ip
+2025-03-12 16:51:25.570 | INFO     | __main__:proxy:282 - 使用代理: {'http': '127.0.0.1:7897', 'https': '127.0.0.1:7897'}
+2025-03-12 16:51:25.571 | INFO     | __main__:proxy:283 - 使用头: {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Accept-Language': 'zh-CN,zh;q=0.9', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'Upgrade-Insecure-Requests': '1'}
+2025-03-12 16:51:32.470 | INFO     | __main__:proxy:294 - 响应状态: 200
+2025-03-12 16:51:40.991 | INFO     | __main__:proxy:280 - =============时间：2025-03-12 16:51:40============
+2025-03-12 16:51:40.992 | INFO     | __main__:proxy:281 - 转发 GET 请求到: http://httpbin.org/ip
+2025-03-12 16:51:40.992 | INFO     | __main__:proxy:282 - 使用代理: {'http': '127.0.0.1:7897', 'https': '127.0.0.1:7897'}
+2025-03-12 16:51:40.992 | INFO     | __main__:proxy:283 - 使用头: {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0'}
+2025-03-12 16:51:43.747 | INFO     | __main__:proxy:280 - =============时间：2025-03-12 16:51:43============
+2025-03-12 16:51:43.747 | INFO     | __main__:proxy:281 - 转发 GET 请求到: http://httpbin.org/ip
+2025-03-12 16:51:43.748 | INFO     | __main__:proxy:282 - 使用代理: {'http': '127.0.0.1:7897', 'https': '127.0.0.1:7897'}
+2025-03-12 16:51:43.748 | INFO     | __main__:proxy:283 - 使用头: {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0'}
+2025-03-12 16:51:47.174 | INFO     | __main__:proxy:294 - 响应状态: 200
+2025-03-12 16:51:47.174 | INFO     | __main__:proxy:294 - 响应状态: 200
+2025-03-12 16:52:10.819 | INFO     | __main__:proxy:280 - =============时间：2025-03-12 16:52:10============
+2025-03-12 16:52:10.819 | INFO     | __main__:proxy:281 - 转发 GET 请求到: http://httpbin.org/ip
+2025-03-12 16:52:10.819 | INFO     | __main__:proxy:282 - 使用代理: {'http': '127.0.0.1:7897', 'https': '127.0.0.1:7897'}
+2025-03-12 16:52:10.820 | INFO     | __main__:proxy:283 - 使用头: {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7', 'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8', 'Accept-Encoding': 'gzip, deflate, br', 'Connection': 'keep-alive', 'Cache-Control': 'max-age=0'}
+2025-03-12 16:52:17.202 | INFO     | __main__:proxy:294 - 响应状态: 200
+2025-03-12 16:53:07.252 | INFO     | function.openChrome:open_Chrome:14 - 初始化Chrome
+2025-03-12 16:53:08.955 | SUCCESS  | function.openChrome:open_Chrome:52 - 初始化成功
+2025-03-12 16:53:08.955 | INFO     | function.main_request:main_req_func:56 - 开始处理登入逻辑
+2025-03-12 16:53:11.335 | INFO     | function.main_request:main_req_func:58 - 当前导向:ThreatBook 用户登录
+2025-03-12 16:53:11.448 | SUCCESS  | function.main_request:main_req_func:63 - 账号输入成功
+2025-03-12 16:53:11.494 | SUCCESS  | function.main_request:main_req_func:65 - 密码输入成功
+2025-03-12 16:53:12.611 | INFO     | function.main_request:main_req_func:69 - 开始绕过滑块验证码
+2025-03-12 16:53:24.831 | ERROR    | function.main_request:main_req_func:101 - 账号密码错误
+2025-03-12 16:53:32.451 | INFO     | function.openChrome:open_Chrome:14 - 初始化Chrome
+2025-03-12 16:53:34.097 | SUCCESS  | function.openChrome:open_Chrome:52 - 初始化成功
+2025-03-12 16:53:34.098 | INFO     | function.main_request:main_req_func:56 - 开始处理登入逻辑
+2025-03-12 16:53:36.113 | INFO     | function.main_request:main_req_func:58 - 当前导向:ThreatBook 用户登录
+2025-03-12 16:53:36.227 | SUCCESS  | function.main_request:main_req_func:63 - 账号输入成功
+2025-03-12 16:53:36.273 | SUCCESS  | function.main_request:main_req_func:65 - 密码输入成功
+2025-03-12 16:53:37.368 | INFO     | function.main_request:main_req_func:69 - 开始绕过滑块验证码
+2025-03-12 16:53:53.386 | SUCCESS  | function.main_request:main_req_func:91 - 登入验证码绕过成功
+2025-03-12 16:53:53.386 | SUCCESS  | function.openChrome:open_Chrome:57 - 账号初始化成功
+2025-03-12 16:53:53.414 | SUCCESS  | function.main_request:bypass:136 - 不存在反爬虫机制
+2025-03-12 16:53:53.414 | INFO     | function.main_request:search_req:119 - 开始执行搜索:www.baidu.com
+2025-03-12 16:53:54.749 | SUCCESS  | function.main_request:search_req:126 - 搜索 -www.baidu.com结束
+2025-03-12 16:53:54.809 | INFO     | __main__:run_script:243 - 脚本执行时间: 22.36 秒
+2025-03-12 16:54:35.447 | WARNING  | __main__:not_found:312 - 404 错误: 找不到
+2025-03-12 16:54:35.528 | WARNING  | __main__:not_found:312 - 404 错误: 找不到
