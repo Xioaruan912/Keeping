@@ -22,7 +22,7 @@
 
 ```
 pip install pyinstaller 
-pyinstaller --onefile --hidden-import=requests.adapters --hidden-import=urllib3 --clean app.py
+pyinstaller --onefile --hidden-import=requests.adapters --hidden-import=urllib3 --clean --add-data=libzbar-64.dll:./pyzbar/ --add-data=libiconv.dll:./pyzbar/  app.py
 ```
 
 
