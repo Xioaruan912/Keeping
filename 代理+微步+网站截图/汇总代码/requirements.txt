@@ -1,8 +1,11 @@
+beautifulsoup4
 Flask
 loguru
 opencv_python
+Pillow
+pyzbar
 Requests
 selenium
 selenium_wire
+urllib3
 webdriver_manager
-blinker==1.7.0

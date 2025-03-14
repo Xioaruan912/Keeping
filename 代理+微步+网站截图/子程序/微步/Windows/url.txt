@@ -1,1 +1,0 @@
-https://x.threatbook.com/v5/vul/keyword/search?params=%7B%22riskLevel%22%3A%22High%22%7D

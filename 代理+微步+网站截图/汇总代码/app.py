@@ -4,24 +4,28 @@ import os
 import random
 import time
 from urllib.parse import urljoin
+import requests
 from bs4 import BeautifulSoup
 from flask import Flask, request, jsonify, make_response, Response
-import requests
-from selenium.webdriver.support.ui import WebDriverWait
 from loguru import logger
+from selenium.webdriver.support.ui import WebDriverWait
 
-# 导入自定义模块
-from picture_function.picture_get import fix_url_protocol
+from Get_100.Get_100 import Get_100
 from function.main_request import search_req, get_auth, bypass
 from function.openChrome import open_Chrome
 from picture_function.openChrome import open_Chrome_pic
+# 导入自定义模块
+from picture_function.picture_get import fix_url_protocol
+from proxy.proxy import rebuild_headers, add_browser_headers
+from web_scan.WebsiteScanner import WebsiteScanner
 
-# ================= 初始化 Flask 应用 =================
+#############################################  初始化 Flask 应用 #############################################
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 app.config['JSON_SORT_KEYS'] = False  # 禁止排序
 
-# ================= 日志配置 =================
+
+#############################################  日志配置 #############################################
 def setup_logger():
     try:
         # 配置标准日志
@@ -40,7 +44,8 @@ def setup_logger():
         print(f"日志配置失败: {e}")
         return logging.getLogger(__name__)
 
-# ================= 工具函数 =================
+
+#############################################  工具函数 #############################################
 def read_setting_json():
     current_dir = os.getcwd()
     config_path = os.path.join(current_dir, 'setting.json')
@@ -71,38 +76,47 @@ def read_setting_json():
         logger.error(f"读取配置文件出错: {str(e)}，启动默认配置")
         return default_config
 
-def rebuild_headers(headers):
-    excluded_headers = [
-        'content-encoding', 'content-length', 'transfer-encoding',
-        'connection', 'host', 'target', 'ip',
-    ]
-    return {key: value for key, value in headers.items() if key.lower() not in excluded_headers}
 
-def get_random_ua():
-    user_agents = [
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0",
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15"
-    ]
-    return random.choice(user_agents)
+#############################################  扫描网站  #############################################
+@app.route('/api/scan', methods=['POST'])
+def scan():
+    data = request.get_json()
+    if not data or 'url' not in data:
+        return jsonify({'error': '缺少 "url" 参数'}), 400
 
-def add_browser_headers(headers):
-    common_headers = {
-        'User-Agent': get_random_ua(),
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
-        'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Connection': 'keep-alive',
-        'Cache-Control': 'max-age=0'
-    }
-    merged_headers = common_headers.copy()
-    merged_headers.update(headers)
-    return merged_headers
+    target_url = data['url']
 
-# ================= 路由定义 =================
+    scanner = WebsiteScanner(target_url)
+    results = scanner.scan_website()
 
-# 截图服务路由
+    return jsonify(results), 200
+
+
+#############################################  百万网站  #############################################
+
+DB_CONFIG = {
+    'host': '127.0.0.1',
+    'port': '5432',
+    'database': 'zq',
+    'user': 'postgres',
+    'password': '123456'
+}
+
+@app.route('/api/get100', methods=['POST'])
+def get100():
+    data = request.get_json()
+    if not data or 'API_TOKEN' not in data:
+        return jsonify({'error': '缺少 "API_TOKEN" 参数'}), 400
+
+    API_TOKEN = data['API_TOKEN']
+
+    Get_100(API_TOKEN,DB_CONFIG)
+    results = "成功"
+    return jsonify(results), 200
+
+
+
+############################################# 截图服务路由 #############################################
 @app.route('/api/capture', methods=['POST'])
 def capture_website_screenshot():
     """截图指定网页并返回 PNG 图片"""
@@ -143,7 +157,8 @@ def capture_website_screenshot():
         logger.error(f"全局异常: {str(e)}")
         return jsonify({"error": "服务器错误"}), 500
 
-# 图标提取路由
+
+#############################################  图标提取路由 #############################################
 @app.route('/api/icon', methods=['POST'])
 def extract_icon_elements():
     try:
@@ -162,7 +177,7 @@ def extract_icon_elements():
         try:
             logger.info(f"正在提取图标: {fixed_url}")
             driver.get(fixed_url)
-            
+
             # 等待页面加载完成
             WebDriverWait(driver, 10).until(
                 lambda d: d.execute_script("return document.readyState") == "complete"
@@ -177,7 +192,7 @@ def extract_icon_elements():
 
             # 使用 driver 加载图标
             driver.get(icon_url)
-            
+
             # 等待图标加载完成
             WebDriverWait(driver, 10).until(
                 lambda d: d.execute_script("return document.readyState") == "complete"
@@ -189,12 +204,12 @@ def extract_icon_elements():
                 var canvas = document.createElement('canvas');
                 var img = document.querySelector('img');
                 if (!img) return null;
-                
+
                 canvas.width = img.naturalWidth;
                 canvas.height = img.naturalHeight;
                 var ctx = canvas.getContext('2d');
                 ctx.drawImage(img, 0, 0);
-                
+
                 return canvas.toDataURL('image/png').split(',')[1];
             """)
 
@@ -216,7 +231,8 @@ def extract_icon_elements():
         logger.error(f"全局异常: {str(e)}")
         return jsonify({"error": "服务器错误"}), 500
 
-# 搜索认证服务路由
+
+##############################################   搜索认证服务路由 #############################################
 @app.route('/api/search', methods=['POST'])
 def run_script():
     """搜索认证服务路由"""
@@ -234,7 +250,7 @@ def run_script():
         if driver == None:
             return jsonify({"error": "check app.log"}), 500
         bypass(driver, "/html/body/div[3]/div[2]/div/div[2]/div/div/div[1]/div[1]/div[1]",
-               "/html/body/div[3]/div[2]/div/div[2]/div/div/div[1]/div[2]", 
+               "/html/body/div[3]/div[2]/div/div[2]/div/div/div[1]/div[2]",
                "/html/body/div[3]/div[2]/div/div[2]/div/div/div[1]/div[1]/div[1]")
         search_req(driver, search_url)
         x_csrf_token, xx_csrf, cookie = get_auth(driver)
@@ -253,7 +269,8 @@ def run_script():
         logger.info("发生 查看日志")
         return jsonify({"error": "check app.log"}), 500
 
-# 代理服务路由
+
+##############################################  代理服务路由 #############################################
 @app.route('/api/proxy', methods=['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'])
 def proxy():
     """代理服务路由"""
@@ -306,18 +323,22 @@ def proxy():
         logger.error(f"意外错误: {str(e)}")
         return str(e), 500
 
-# ================= 错误处理 =================
+
+#############################################  错误处理 #############################################
 @app.errorhandler(404)
 def not_found(e):
     logger.warning("404 错误: 找不到")
     return "找不到", 404
+
 
 @app.errorhandler(500)
 def internal_error(e):
     logger.error("500 错误: 内部服务器错误")
     return "内部服务器错误", 500
 
-# ================= 主程序入口 =================
+
+############################################## 主程序入口 #############################################
+# noinspection LanguageDetectionInspection
 if __name__ == '__main__':
     std_logger = setup_logger()
     config = read_setting_json()
