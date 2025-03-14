@@ -111,7 +111,7 @@ def get100():
     API_TOKEN = data['API_TOKEN']
 
     Get_100(API_TOKEN,DB_CONFIG)
-    results = "成功"
+    results = "ok"
     return jsonify(results), 200
 
 

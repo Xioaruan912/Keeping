@@ -1,0 +1,67 @@
+2025-03-14 15:35:27.590 | INFO     | __main__:setup_logger:41 - 日志配置成功，日志文件路径: C:\Users\Administrator\Desktop\Keeping-main\代理+微步+网站截图\app.log
+2025-03-14 15:35:27.591 | INFO     | __main__:read_setting_json:70 - 配置文件不存在，创建配置文件并使用默认配置。
+2025-03-14 15:35:27.592 | SUCCESS  | __main__:read_setting_json:73 - 已创建配置文件：C:\Users\Administrator\Desktop\Keeping-main\代理+微步+网站截图\setting.json
+2025-03-14 15:37:08.112 | INFO     | __main__:setup_logger:41 - 日志配置成功，日志文件路径: C:\Users\Administrator\Desktop\Keeping-main\代理+微步+网站截图\app.log
+2025-03-14 15:37:08.112 | SUCCESS  | __main__:read_setting_json:61 - 配置文件存在：C:\Users\Administrator\Desktop\Keeping-main\代理+微步+网站截图\setting.json
+2025-03-14 15:37:08.291 | INFO     | picture_function.picture_get:fix_url_protocol:32 - 尝试补全协议: www.baidu.com
+2025-03-14 15:37:08.534 | INFO     | picture_function.picture_get:fix_url_protocol:42 - 可用协议: http://www.baidu.com
+2025-03-14 15:37:08.534 | INFO     | picture_function.openChrome:open_Chrome_pic:19 - 初始化 Chrome
+2025-03-14 15:37:08.535 | INFO     | picture_function.openChrome:open_Chrome_pic:51 - 下载 Chromedriver
+2025-03-14 15:39:21.085 | INFO     | picture_function.openChrome:open_Chrome_pic:55 - driver_path : C:\Users\Administrator\.wdm\drivers\chromedriver\win64\134.0.6998.88\chromedriver-win32/chromedriver.exe
+2025-03-14 15:39:21.096 | INFO     | picture_function.openChrome:open_Chrome_pic:57 - 下载至:./Chorme_driver/chromedriver.exe成功
+2025-03-14 15:39:23.226 | SUCCESS  | picture_function.openChrome:open_Chrome_pic:62 - 初始化成功
+2025-03-14 15:39:23.226 | INFO     | __main__:extract_icon_elements:178 - 正在提取图标: http://www.baidu.com
+2025-03-14 15:39:24.928 | INFO     | __main__:extract_icon_elements:185 - 页面加载完成
+2025-03-14 15:39:24.973 | INFO     | __main__:extract_icon_elements:191 - 图标地址: https://www.baidu.com/favicon.ico
+2025-03-14 15:39:25.068 | INFO     | __main__:extract_icon_elements:200 - 图标加载完成
+2025-03-14 15:39:32.330 | INFO     | picture_function.picture_get:fix_url_protocol:32 - 尝试补全协议: www.baidu.com
+2025-03-14 15:39:32.529 | INFO     | picture_function.picture_get:fix_url_protocol:42 - 可用协议: http://www.baidu.com
+2025-03-14 15:39:32.530 | INFO     | picture_function.openChrome:open_Chrome_pic:19 - 初始化 Chrome
+2025-03-14 15:39:34.215 | SUCCESS  | picture_function.openChrome:open_Chrome_pic:62 - 初始化成功
+2025-03-14 15:39:34.216 | INFO     | __main__:extract_icon_elements:178 - 正在提取图标: http://www.baidu.com
+2025-03-14 15:39:35.957 | INFO     | __main__:extract_icon_elements:185 - 页面加载完成
+2025-03-14 15:39:36.004 | INFO     | __main__:extract_icon_elements:191 - 图标地址: https://www.baidu.com/favicon.ico
+2025-03-14 15:39:36.071 | INFO     | __main__:extract_icon_elements:200 - 图标加载完成
+2025-03-14 15:39:43.352 | INFO     | picture_function.picture_get:fix_url_protocol:32 - 尝试补全协议: www.baidu.com
+2025-03-14 15:39:43.548 | INFO     | picture_function.picture_get:fix_url_protocol:42 - 可用协议: http://www.baidu.com
+2025-03-14 15:39:43.548 | INFO     | picture_function.openChrome:open_Chrome_pic:19 - 初始化 Chrome
+2025-03-14 15:39:45.198 | SUCCESS  | picture_function.openChrome:open_Chrome_pic:62 - 初始化成功
+2025-03-14 15:39:45.198 | INFO     | __main__:capture_website_screenshot:140 - 访问 URL: http://www.baidu.com
+2025-03-14 15:39:57.128 | WARNING  | __main__:not_found:330 - 404 错误: 找不到
+2025-03-14 15:40:00.444 | INFO     | picture_function.picture_get:fix_url_protocol:32 - 尝试补全协议: www.baidu.com
+2025-03-14 15:40:00.651 | INFO     | picture_function.picture_get:fix_url_protocol:42 - 可用协议: http://www.baidu.com
+2025-03-14 15:40:00.652 | INFO     | picture_function.openChrome:open_Chrome_pic:19 - 初始化 Chrome
+2025-03-14 15:40:02.282 | SUCCESS  | picture_function.openChrome:open_Chrome_pic:62 - 初始化成功
+2025-03-14 15:40:02.282 | INFO     | __main__:capture_website_screenshot:140 - 访问 URL: http://www.baidu.com
+2025-03-14 15:40:18.125 | INFO     | web_scan.WebsiteScanner:scan_website:121 - 开始扫描网站: www.baidu.com
+2025-03-14 15:40:18.126 | INFO     | web_scan.WebsiteScanner:scan_website:122 - ==================================================
+2025-03-14 15:40:18.126 | INFO     | web_scan.WebsiteScanner:crawl_page:102 - 
+正在扫描第 1 个页面: www.baidu.com
+2025-03-14 15:40:18.127 | ERROR    | web_scan.WebsiteScanner:crawl_page:113 - 爬取页面错误 www.baidu.com: Invalid URL 'www.baidu.com': No scheme supplied. Perhaps you meant https://www.baidu.com?
+2025-03-14 15:40:18.127 | INFO     | web_scan.WebsiteScanner:scan_website:127 - 扫描完成！统计信息：
+2025-03-14 15:40:18.128 | INFO     | web_scan.WebsiteScanner:scan_website:128 - 总耗时: 0.00 秒
+2025-03-14 15:40:18.128 | INFO     | web_scan.WebsiteScanner:scan_website:129 - 扫描页面数: 1
+2025-03-14 15:40:18.128 | INFO     | web_scan.WebsiteScanner:scan_website:130 - 处理图片数: 0
+2025-03-14 15:40:18.128 | INFO     | web_scan.WebsiteScanner:scan_website:131 - 发现二维码数: 0
+2025-03-14 15:40:18.129 | INFO     | web_scan.WebsiteScanner:scan_website:132 - 发现下载链接数: 0
+2025-03-14 15:40:54.666 | INFO     | Get_100.Get_100:create_table:106 - 表创建成功
+2025-03-14 15:40:58.723 | INFO     | Get_100.Get_100:Get_100:175 - 前一百万排名的数据集下载 URL: https://radar-etl-production.0b7358d77426ae6413d56c1cc0499b4f.r2.cloudflarestorage.com/domains-ranking/data/global-bucket/2025/03/10/output/bucket-1000000-20250303-20250310.csv?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=38d88d4b788c1770715e4cc0035704c7%2F20250314%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20250314T074058Z&X-Amz-Expires=3600&X-Amz-Signature=72555e5c8449ca80472818972d61d1796d649c53e7e27b85ddd386f49ffd0957&X-Amz-SignedHeaders=host&x-id=GetObject
+2025-03-14 15:40:58.723 | INFO     | Get_100.Get_100:download_dataset:53 - 开始下载数据集...
+2025-03-14 15:41:08.104 | INFO     | Get_100.Get_100:download_dataset:72 - 下载完成，开始转换为 CSV 格式...
+2025-03-14 15:41:08.696 | INFO     | Get_100.Get_100:download_dataset:86 - 数据集已成功保存为 top_one_million_domains.csv
+2025-03-14 15:42:29.184 | INFO     | Get_100.Get_100:import_data_from_csv:127 - 数据导入成功，旧数据已被覆盖
+2025-03-14 15:42:29.184 | INFO     | Get_100.Get_100:Get_100:187 - 数据获取和导入成功完成
+2025-03-14 15:42:29.184 | INFO     | Get_100.Get_100:Get_100:199 - 数据库连接已关闭
+2025-03-14 15:43:34.642 | INFO     | function.openChrome:open_Chrome:21 - 初始化 Chrome
+2025-03-14 15:43:36.342 | SUCCESS  | function.openChrome:open_Chrome:64 - 初始化成功
+2025-03-14 15:43:36.343 | INFO     | function.main_request:main_req_func:79 - 开始处理登入逻辑
+2025-03-14 15:43:46.674 | INFO     | function.main_request:main_req_func:81 - 当前导向:ThreatBook 用户登录
+2025-03-14 15:43:46.808 | SUCCESS  | function.main_request:main_req_func:86 - 账号输入成功
+2025-03-14 15:43:46.856 | SUCCESS  | function.main_request:main_req_func:88 - 密码输入成功
+2025-03-14 15:43:47.958 | INFO     | function.main_request:main_req_func:92 - 开始绕过滑块验证码
+2025-03-14 15:44:03.610 | SUCCESS  | function.main_request:main_req_func:114 - 登入验证码绕过成功
+2025-03-14 15:44:03.611 | SUCCESS  | function.openChrome:open_Chrome:71 - 账号初始化成功
+2025-03-14 15:44:03.632 | SUCCESS  | function.main_request:bypass:171 - 不存在反爬虫机制
+2025-03-14 15:44:03.632 | INFO     | function.main_request:search_req:147 - 开始执行搜索:baidu.com
+2025-03-14 15:44:05.040 | SUCCESS  | function.main_request:search_req:154 - 搜索 -baidu.com结束
+2025-03-14 15:44:05.103 | INFO     | __main__:run_script:259 - 脚本执行时间: 30.46 秒
