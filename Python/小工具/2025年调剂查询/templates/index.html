@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据展示</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f5f5; /* 柔和的蓝绿色背景 */
+            color: #333;
+        }
+        header {
+            background-color: #5a7d9a; /* 柔和的蓝色 */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 400;
+        }
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 25px;
+            background-color: #fff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            border: 1px solid #e0e6e6;
+        }
+        h3 {
+            font-size: 1.5em;
+            color: #4a6b8a;
+            border-bottom: 1px solid #e0e6e6;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 0.95em;
+        }
+        table, th, td {
+            border: 1px solid #dde2e2;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #f5f9f9;
+            color: #4a6b8a;
+            font-weight: 500;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #fafcfc;
+        }
+        tbody tr:hover {
+            background-color: #f0f5f5;
+        }
+        select, button {
+            padding: 10px 15px;
+            font-size: 1em;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #d1d9d9;
+            outline: none;
+            background-color: #fff;
+        }
+        select {
+            min-width: 200px;
+        }
+        button {
+            background-color: #6a8bad;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            margin-left: 10px;
+        }
+        button:hover {
+            background-color: #5a7d9a;
+            transform: translateY(-1px);
+        }
+        .info-block {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #fafcfc;
+            border-radius: 8px;
+            border: 1px solid #e0e6e6;
+        }
+        .info-block p {
+            margin: 8px 0;
+            font-size: 1.05em;
+            color: #555;
+        }
+        .info-block strong {
+            color: #5a7d9a;
+        }
+        .total-count {
+            background-color: #e6f0f0;
+            padding: 12px 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: #4a6b8a;
+            border-left: 4px solid #5a7d9a;
+        }
+
+        /* 加载提示样式 */
+        .loading-container {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            margin: 20px 0;
+            background-color: #f5f9f9;
+            border-radius: 8px;
+            border: 1px dashed #c8d6d6;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(90, 125, 154, 0.2);
+            border-radius: 50%;
+            border-top-color: #5a7d9a;
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 15px;
+        }
+        
+        .loading-text {
+            color: #5a7d9a;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+            select, button {
+                width: 100%;
+                margin: 5px 0;
+            }
+            button {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>数据展示</h1>
+    </header>
+
+    <div class="container">
+        <!-- 专业选择表单 -->
+        <div class="form-container">
+            <form method="POST" id="form">
+                <label for="zymc">选择专业：</label>
+                <select name="zymc" id="zymc" required>
+                    <option value="网络与信息安全" {% if zymc == '网络与信息安全' %}selected{% endif %}>网络与信息安全</option>
+                    <option value="计算机技术" {% if zymc == '计算机技术' %}selected{% endif %}>计算机技术</option>
+                    <option value="人工智能" {% if zymc == '人工智能' %}selected{% endif %}>人工智能</option>
+                </select>
+                <button type="submit">查询</button>
+            </form>
+        </div>
+
+        <!-- 加载提示 -->
+        <div class="loading-container" id="loading">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">正在加载数据，请稍候...</div>
+        </div>
+
+        <!-- 数据展示 -->
+        <div class="info-block">
+            <h3>学校列表（专业：{{ zymc }}）</h3>
+            
+            <!-- 新增的总学校数量展示 -->
+            <div class="total-count">
+                共找到 <strong>{{ data|length }}</strong> 所学校开设该专业
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>学校名称</th>
+                        <th>学院名称</th>
+                        <th>专业名称</th>
+                        <th>发布时间</th>
+                        <th>备注</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in data %}
+                        <tr>
+                            <td>{{ item.dwmc }}</td>
+                            <td>{{ item.yxsmc }}</td>
+                            <td>{{ item.zymc }}</td>
+                            <td>{{ item.fbsjStr }}</td>
+                            <td>{{ item.bz if item.bz else '无' }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // 显示加载提示
+        document.getElementById('form').onsubmit = function() {
+            document.getElementById('loading').style.display = 'block';
+            document.querySelector('.info-block').style.opacity = '0.5';
+        }
+        
+        // 页面加载完成后隐藏加载提示（模拟）
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading').style.display = 'none';
+                document.querySelector('.info-block').style.opacity = '1';
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

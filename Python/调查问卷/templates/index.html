@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问卷调查</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #28a745;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .message {
+            margin-top: 15px;
+            color: green;
+            font-weight: bold;
+            text-align: center;
+        }
+        .error {
+            margin-top: 15px;
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>问卷调查</h1>
+        <form id="survey-form">
+            <!-- 输入自己的学号 -->
+            <div class="form-group">
+                <label for="student-id">您的学号:</label>
+                <input type="text" id="student-id" name="student-id" required>
+                <button type="button" id="check-student-id" class="btn btn-primary">检验学号</button>
+                <div id="student-info" class="message"></div>
+            </div>
+
+            <!-- 选择要评分的学生 -->
+            <div class="form-group">
+                <label for="target-student">选择要评分的学生:</label>
+                <select id="target-student" name="target-student" required>
+                    <option value="">请选择</option>
+                </select>
+            </div>
+
+            <!-- 填写分数 -->
+            <div class="form-group">
+                <label for="ideology-score">理想信念分数 (0-30):</label>
+                <input type="number" id="ideology-score" name="ideology-score" min="0" max="30" required>
+            </div>
+
+            <div class="form-group">
+                <label for="patriotism-score">爱国情怀分数 (0-25):</label>
+                <input type="number" id="patriotism-score" name="patriotism-score" min="0" max="25" required>
+            </div>
+
+            <div class="form-group">
+                <label for="morality-score">道德品质分数 (0-20):</label>
+                <input type="number" id="morality-score" name="morality-score" min="0" max="20" required>
+            </div>
+
+            <div class="form-group">
+                <label for="collectivism-score">集体观念分数 (0-15):</label>
+                <input type="number" id="collectivism-score" name="collectivism-score" min="0" max="15" required>
+            </div>
+
+            <div class="form-group">
+                <label for="legality-score">法治观念分数 (0-10):</label>
+                <input type="number" id="legality-score" name="legality-score" min="0" max="10" required>
+            </div>
+
+            <button type="submit" class="btn btn-success">提交</button>
+        </form>
+        <div id="message" class="message"></div>
+        <div id="error" class="error"></div>
+    </div>
+
+    <!-- 弹窗库 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // 检验学号
+        document.getElementById('check-student-id').addEventListener('click', async () => {
+            const studentId = document.getElementById('student-id').value;
+            const studentInfoDiv = document.getElementById('student-info');
+            const errorDiv = document.getElementById('error');
+
+            if (!studentId) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '错误',
+                    text: '请输入学号',
+                });
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/check-student?student_id=${studentId}`);
+                const data = await response.json();
+
+                if (response.ok) {
+                    // 显示评分人信息
+                    studentInfoDiv.textContent = `姓名: ${data.姓名}, 区队: ${data.区队}`;
+
+                    // 加载同一区队的学生列表
+                    loadStudents(data.区队);
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: '错误',
+                        text: data.error || '学号不存在',
+                    });
+                    studentInfoDiv.textContent = '';
+                }
+            } catch (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '网络错误',
+                    text: '请重试',
+                });
+            }
+        });
+
+        // 动态加载学生列表
+        async function loadStudents(team) {
+            try {
+                const studentId = document.getElementById('student-id').value; // 获取当前评分人学号
+
+                // 获取学生列表
+                const response = await fetch(`/api/students?team=${team}`);
+                const students = await response.json();
+
+                // 获取已评价的学生列表
+                const scoredResponse = await fetch(`/api/scored-students?team=${team}&student_id=${studentId}`);
+                const scoredStudents = await scoredResponse.json();
+
+                if (response.ok && scoredResponse.ok) {
+                    const select = document.getElementById('target-student');
+                    select.innerHTML = '<option value="">请选择</option>'; // 清空选项
+
+                    students.forEach(student => {
+                        const option = document.createElement('option');
+                        option.value = student.学号;
+
+                        // 检查是否已经评价
+                        const isScored = scoredStudents.some(scored => scored.被评分学号 === student.学号);
+
+                        // 根据是否评价添加符号
+                        option.textContent = `${isScored ? '✅' : '❌'} ${student.姓名}`;
+                        select.appendChild(option);
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: '错误',
+                        text: '加载学生列表失败',
+                    });
+                }
+            } catch (error) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '网络错误',
+                    text: '请重试',
+                });
+            }
+        }
+
+        // 提交表单
+        document.getElementById('survey-form').addEventListener('submit', async (event) => {
+            event.preventDefault(); // 阻止表单默认提交行为
+
+            const studentId = document.getElementById('student-id').value; // 评分人学号
+            const studentName = document.getElementById('student-info').textContent.split(',')[0].replace('姓名: ', ''); // 评分人姓名
+            const team = document.getElementById('student-info').textContent.split(',')[1].replace(' 区队: ', ''); // 区队
+            const targetStudentId = document.getElementById('target-student').value; // 被评分人学号
+            const targetStudentName = document.getElementById('target-student').selectedOptions[0].textContent
+                .replace(/✅|❌/g, '') // 去除 ✅ 和 ❌ 符号
+                .trim(); // 去除前后空格
+            const ideologyScore = document.getElementById('ideology-score').value;
+            const patriotismScore = document.getElementById('patriotism-score').value;
+            const moralityScore = document.getElementById('morality-score').value;
+            const collectivismScore = document.getElementById('collectivism-score').value;
+            const legalityScore = document.getElementById('legality-score').value;
+
+            try {
+                // 发送请求到后端
+                const response = await fetch('/api/submit-score', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        student_id: studentId,
+                        student_name: studentName,
+                        team: team, // 区队
+                        target_student_id: targetStudentId,
+                        target_student_name: targetStudentName,
+                        ideology_score: ideologyScore,
+                        patriotism_score: patriotismScore,
+                        morality_score: moralityScore,
+                        collectivism_score: collectivismScore,
+                        legality_score: legalityScore,
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // 显示成功消息
+                    Swal.fire({
+                        icon: 'success',
+                        title: '成功',
+                        text: '投票提交成功！',
+                    }).then(() => {
+                        // 刷新已评价的学生列表
+                        loadStudents(team);
+                    });
+                } else {
+                    // 显示错误消息
+                    Swal.fire({
+                        icon: 'error',
+                        title: '错误',
+                        text: data.error || '提交失败',
+                    });
+                }
+            } catch (error) {
+                // 捕获网络错误
+                Swal.fire({
+                    icon: 'error',
+                    title: '网络错误',
+                    text: '请重试',
+                });
+            }
+        });
+    </script>
+</body>
+</html>

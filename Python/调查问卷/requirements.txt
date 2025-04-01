@@ -1,0 +1,4 @@
+Flask
+loguru
+pandas
+openpyxl
