@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b5d7f9fa-ea93-4096-bc6a-aeb94c6e892b" name="默认更改列表" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="2vOLi4s6SIh9NT1oIMU4F953O7o" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="http.proxy" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="2025年调剂查询" type="PythonConfigurationType" factoryName="Python">
+      <module name="2025年调剂查询" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/opt/anaconda3/envs/pytorch/bin/python" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b5d7f9fa-ea93-4096-bc6a-aeb94c6e892b" name="默认更改列表" comment="" />
+      <created>1744011297942</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744011297942</updated>
+      <workItem from="1744011301845" duration="2416000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="433" y="202" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1744011350156">
+      <screen x="0" y="25" width="1920" height="966" />
+    </state>
+    <state x="433" y="202" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1920.966@0.25.1920.966" timestamp="1744011350156" />
+    <state width="1519" height="205" key="GridCell.Tab.0.bottom" timestamp="1744013724504">
+      <screen x="0" y="25" width="1920" height="968" />
+    </state>
+    <state width="1518" height="205" key="GridCell.Tab.0.bottom/0.25.1920.966@0.25.1920.966" timestamp="1744012405514" />
+    <state width="1519" height="205" key="GridCell.Tab.0.bottom/0.25.1920.968@0.25.1920.968" timestamp="1744013724504" />
+    <state width="1519" height="205" key="GridCell.Tab.0.center" timestamp="1744013724503">
+      <screen x="0" y="25" width="1920" height="968" />
+    </state>
+    <state width="1518" height="205" key="GridCell.Tab.0.center/0.25.1920.966@0.25.1920.966" timestamp="1744012405514" />
+    <state width="1519" height="205" key="GridCell.Tab.0.center/0.25.1920.968@0.25.1920.968" timestamp="1744013724503" />
+    <state width="1519" height="205" key="GridCell.Tab.0.left" timestamp="1744013724503">
+      <screen x="0" y="25" width="1920" height="968" />
+    </state>
+    <state width="1518" height="205" key="GridCell.Tab.0.left/0.25.1920.966@0.25.1920.966" timestamp="1744012405513" />
+    <state width="1519" height="205" key="GridCell.Tab.0.left/0.25.1920.968@0.25.1920.968" timestamp="1744013724503" />
+    <state width="1519" height="205" key="GridCell.Tab.0.right" timestamp="1744013724504">
+      <screen x="0" y="25" width="1920" height="968" />
+    </state>
+    <state width="1518" height="205" key="GridCell.Tab.0.right/0.25.1920.966@0.25.1920.966" timestamp="1744012405514" />
+    <state width="1519" height="205" key="GridCell.Tab.0.right/0.25.1920.968@0.25.1920.968" timestamp="1744013724504" />
+    <state x="591" y="168" key="SettingsEditor" timestamp="1744012226974">
+      <screen x="0" y="25" width="1920" height="966" />
+    </state>
+    <state x="591" y="168" key="SettingsEditor/0.25.1920.966@0.25.1920.966" timestamp="1744012226974" />
+    <state x="1310" y="451" key="com.intellij.ide.util.TipDialog" timestamp="1744011305962">
+      <screen x="0" y="25" width="1920" height="966" />
+    </state>
+    <state x="1310" y="451" key="com.intellij.ide.util.TipDialog/0.25.1920.966@0.25.1920.966" timestamp="1744011305962" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/2025$2025.coverage" NAME="2025年调剂查询 Coverage Results" MODIFIED="1744013568569" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
+</project>

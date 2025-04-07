@@ -1,19 +1,38 @@
+import time
+
 import requests
 from flask import Flask, render_template, request
-
+from reques_web import re
 app = Flask(__name__)
+# 全局变量存储cookie和最后更新时间
+cookie_cache = {
+    'value': None,
+    'last_update': 0,
+    'expire_time': 1800  # 30分钟过期时间（单位：秒）
+}
+
+def get_cached_cookie():
+    current_time = time.time()
+    # 如果cookie不存在或已过期，则重新获取
+    if cookie_cache['value'] is None or (current_time - cookie_cache['last_update']) > cookie_cache['expire_time']:
+        cookie_cache['value'] = re()
+        cookie_cache['last_update'] = current_time
+        print("重新获取了cookie")
+    else:
+        print("使用缓存的cookie")
+    return cookie_cache['value']
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     # 获取前端传递的专业名称，默认为“网络与信息安全”
     zymc = request.form.get('zymc', '网络与信息安全') if request.method == 'POST' else '网络与信息安全'
-
+    cookie = get_cached_cookie()
     # 调用接口并获取数据
     url = 'https://yz.chsi.com.cn/sytj/stu/tjyxqexxcx.action'  # 你实际的接口URL
     headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36',
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-        'Cookie': """JSESSIONID=BC753B38188A83C691537ECA786DF966; _ga_YKHKPH396P=GS1.1.1742893590.1.0.1742893600.0.0.0; Hm_lvt_9c8767bf2ffaff9d16e0e409bd28017b=1743043379; CHSICLTID=CA1.1.4419ed3ef3d4b81fd56369d365f455c6; CHSIDSTID=195cc8d25531de2-0f78f026b324a5-1b525636-1fa400-195cc8d25543344; _abfpc=7e448833ea986d5791d3e102b319236f24218981_2.0; cna=becd8b8092065b35f51856a997125d3f; _ga_RNH4PZV76K=GS1.1.1743043396.1.1.1743043457.0.0.0; _ga_8YMQD1TE48=GS1.1.1743043381.1.1.1743043459.0.0.0; JSESSIONID=DE285E38487B27748EC95FE006330A9F; XSRF-CCKTOKEN=da2b94e7b22adb0f54d5d4ae7eabe64e; CHSICC_CLIENTFLAGYZ=4bdb2e08b81febd11221266939eb90c9; Hm_lvt_3916ecc93c59d4c6e9d954a54f37d84c=1743576292,1743582825,1743604453,1743924071; HMACCOUNT=64B336966BEE4E11; _gid=GA1.3.635064485.1743924071; _ga_TT7MCH8RRF=GS1.1.1743924112.15.0.1743924114.0.0.0; CHSICC_CLIENTFLAGSYTJ=0857739fa9b318e9935e301476043ae2; Hm_lpvt_3916ecc93c59d4c6e9d954a54f37d84c=1743924149; _ga_YZV5950NX3=GS1.1.1743924071.26.1.1743924149.0.0.0; _ga=GA1.1.611441936.1742797364"""
+        'Cookie': cookie
     }
 
     # 这里的分页控制开始
@@ -56,4 +75,5 @@ def index():
     return render_template('index.html', data=all_data, zymc=zymc)
 
 if __name__ == '__main__':
+
     app.run(debug=True,port = 1314)
