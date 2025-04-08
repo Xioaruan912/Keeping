@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1bd2fa70-af17-4c5c-8c45-0344dd26f404" name="默认更改列表" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="ProjectId" id="2vOwHUPMojdqk1b07G7WpzoUt2O" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RunManager">
+    <configuration name="TG" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="TG通知" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/opt/anaconda3/envs/pytorch/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TG.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="TG通知" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/opt/anaconda3/envs/pytorch/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TG.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1bd2fa70-af17-4c5c-8c45-0344dd26f404" name="默认更改列表" comment="" />
+      <created>1744029340600</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744029340600</updated>
+      <workItem from="1744029344642" duration="4470000" />
+      <workItem from="1744074457396" duration="448000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="511" y="171" width="1071" height="702" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1744031722870">
+      <screen x="0" y="25" width="1920" height="971" />
+    </state>
+    <state x="511" y="171" width="1071" height="702" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1920.971@0.25.1920.971" timestamp="1744031722870" />
+    <state width="1519" height="209" key="GridCell.Tab.0.bottom" timestamp="1744074908077">
+      <screen x="0" y="25" width="1920" height="973" />
+    </state>
+    <state width="1519" height="209" key="GridCell.Tab.0.bottom/0.25.1920.971@0.25.1920.971" timestamp="1744033823480" />
+    <state width="1519" height="209" key="GridCell.Tab.0.bottom/0.25.1920.973@0.25.1920.973" timestamp="1744074908077" />
+    <state width="1519" height="209" key="GridCell.Tab.0.center" timestamp="1744074908077">
+      <screen x="0" y="25" width="1920" height="973" />
+    </state>
+    <state width="1519" height="209" key="GridCell.Tab.0.center/0.25.1920.971@0.25.1920.971" timestamp="1744033823480" />
+    <state width="1519" height="209" key="GridCell.Tab.0.center/0.25.1920.973@0.25.1920.973" timestamp="1744074908077" />
+    <state width="1519" height="209" key="GridCell.Tab.0.left" timestamp="1744074908077">
+      <screen x="0" y="25" width="1920" height="973" />
+    </state>
+    <state width="1519" height="209" key="GridCell.Tab.0.left/0.25.1920.971@0.25.1920.971" timestamp="1744033823479" />
+    <state width="1519" height="209" key="GridCell.Tab.0.left/0.25.1920.973@0.25.1920.973" timestamp="1744074908077" />
+    <state width="1519" height="209" key="GridCell.Tab.0.right" timestamp="1744074908077">
+      <screen x="0" y="25" width="1920" height="973" />
+    </state>
+    <state width="1519" height="209" key="GridCell.Tab.0.right/0.25.1920.971@0.25.1920.971" timestamp="1744033823480" />
+    <state width="1519" height="209" key="GridCell.Tab.0.right/0.25.1920.973@0.25.1920.973" timestamp="1744074908077" />
+    <state x="741" y="341" key="com.intellij.ide.util.TipDialog" timestamp="1744074471708">
+      <screen x="0" y="25" width="1920" height="975" />
+    </state>
+    <state x="741" y="341" key="com.intellij.ide.util.TipDialog/0.25.1920.975@0.25.1920.975" timestamp="1744074471708" />
+    <state x="711" y="281" width="670" height="676" key="search.everywhere.popup" timestamp="1744031215694">
+      <screen x="0" y="25" width="1920" height="971" />
+    </state>
+    <state x="711" y="281" width="670" height="676" key="search.everywhere.popup/0.25.1920.971@0.25.1920.971" timestamp="1744031215694" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TG$TG.coverage" NAME="TG Coverage Results" MODIFIED="1744074823872" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
