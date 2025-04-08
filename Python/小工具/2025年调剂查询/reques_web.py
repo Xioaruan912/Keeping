@@ -44,8 +44,8 @@ def get_cookie_string(driver) -> str:
         return ""
 
 def re():
-    username = 
-    password = 
+    username = 账号
+    password = 密码
     driver = openChrome()
     logger.info("开始处理登入逻辑")
     driver.get("https://account.chsi.com.cn/passport/login?entrytype=yzgr&service=https%3A%2F%2Fyz.chsi.com.cn%2Fsytj%2Fj_spring_cas_security_check")
