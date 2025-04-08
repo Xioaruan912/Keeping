@@ -3,7 +3,7 @@ from telegram.ext import Application, CommandHandler, ContextTypes
 from reques_web import get_data
 import logging
 
-YOUR_BOT_TOKEN = "7943600651:AAGOwiT0iCinaimtYq_aIosIvWBTFD-xTJ8"
+YOUR_BOT_TOKEN = ""
 
 # 配置日志
 logging.basicConfig(
