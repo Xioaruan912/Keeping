@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>请输入密码</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 400px;
+            padding: 40px;
+            border: 1px solid #ccc;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .alert {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-center mb-4">请输入密码</h3>
+
+        <!-- 错误消息 -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class="alert alert-danger">
+              {% for category, message in messages %}
+                <p>{{ message }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="/check_password">
+            <div class="mb-3">
+                <label for="password" class="form-label">密码</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">确认</button>
+        </form>
+    </div>
+</body>
+</html>

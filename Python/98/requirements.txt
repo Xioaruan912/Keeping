@@ -1,0 +1,6 @@
+Flask
+loguru
+python-telegram-bot
+Requests
+selenium
+webdriver_manager

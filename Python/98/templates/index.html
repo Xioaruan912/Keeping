@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>98 签到仪表盘</title>
+  <!-- 引用本地的 bootstrap.min.css 文件 -->
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+  <style>
+    /* 如果你需要自定义样式，可以在这里添加 */
+    body {
+        background-color: #f8f9fa;
+    }
+    .container {
+        max-width: 1200px;
+    }
+    .btn {
+        margin-top: 20px;
+    }
+    .card-header {
+        background-color: #007bff;
+        color: white;
+    }
+    .card-body {
+        background-color: #ffffff;
+    }
+  </style>
+</head>
+<body class="bg-light">
+<div class="container py-5">
+
+  <h1 class="text-primary mb-4">98 签到仪表盘</h1>
+
+  <!-- 上次执行计划 -->
+  <div class="row mb-4">
+    <div class="col-md-6 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-header bg-white">
+          <strong>签到计划</strong>
+        </div>
+        <div class="card-body p-0">
+          <table class="table table-hover mb-0">
+            <thead class="table-light">
+              <tr>
+                <th>账号</th>
+                <th>下次执行时间</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for username, run_time in next_run_times.items() %}
+              <tr>
+                <td>{{ username }}</td>
+                <td>{{ run_time.strftime("%Y-%m-%d %H:%M:%S") }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 手动签到 -->
+    <div class="col-md-6 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-header bg-white">
+          <strong>手动签到</strong>
+        </div>
+        <div class="card-body">
+          <form method="POST" action="/">
+            <div class="mb-3">
+              <label for="selected_account" class="form-label">选择账号：</label>
+              <select class="form-select" id="selected_account" name="selected_account">
+                {% for account in accounts %}
+                  <option value="{{ account }}">{{ account }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">立即签到</button>
+          </form>
+          {% if message %}
+          <div class="mt-3 alert alert-info py-2">{{ message }}</div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 全部签到按钮 -->
+  <div class="row mb-4">
+    <div class="col-md-12 mb-3">
+      <form method="POST" action="/run_all">
+        <button type="submit" class="btn btn-success w-100">全部签到</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 历史记录 -->
+  <div class="card shadow-sm">
+    <div class="card-header bg-white">
+      <strong>历史记录</strong>
+    </div>
+    <div class="card-body p-0">
+      <table class="table table-striped mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>执行时间</th>
+            <th>账号</th>
+            <th>执行结果</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for log in logs %}
+          <tr>
+            <td>{{ log.timestamp }}</td>
+            <td>{{ log.username }}</td>
+            <td class="{{ 'text-success' if log.status == '成功' else 'text-danger' }}">
+              {{ log.status if log.status else '暂无状态' }}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
