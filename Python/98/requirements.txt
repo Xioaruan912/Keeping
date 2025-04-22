@@ -4,3 +4,4 @@ python-telegram-bot
 Requests
 selenium
 webdriver_manager
+flask_sqlalchemy

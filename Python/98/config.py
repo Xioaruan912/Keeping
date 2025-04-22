@@ -4,6 +4,7 @@
 文件作用介绍: 
 
 '''
+
 import random
 
 class ACC:
@@ -12,8 +13,11 @@ class ACC:
         self.password = password
         self.question = question
         self.pinlun = random.choice(pinluns) if isinstance(pinluns, list) else pinluns
-PASSWORD = '密码'
+        
+        
+
 # 多账号配置
+PASSWORD = '密码'
 accounts = {
     "账号名称": ACC(
         username="账号名称",

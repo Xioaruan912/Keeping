@@ -1,3 +1,9 @@
+'''
+作者: Xioaruan912 xioaruan@gmail.com
+最后编辑人员: Xioaruan912 xioaruan@gmail.com
+文件作用介绍: 
+
+'''
 
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -8,11 +14,13 @@ def sign_in(driver,url):
     logger.info("开始处理签到")
     sign_url = url+"plugin.php?id=dd_sign"
     driver.get(sign_url)
-    sign = driver.find_element(By.XPATH,"""//*[@id="wp"]/div[2]/div[1]/div[1]/a""").text
-    if sign == "今日已签到":
-        logger.success("当前账号已经签到")
-        return sign
     try:
+
+        sign = driver.find_element(By.XPATH,"""//*[@id="wp"]/div[2]/div[1]/div[1]/a""").text
+        if sign == "今日已签到":
+            logger.success("当前账号已经签到")
+            return sign
+
         WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, "//*[@id='wp']/div[2]/div[1]/div[1]/a"))
     ).click()
