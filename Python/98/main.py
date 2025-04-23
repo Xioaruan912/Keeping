@@ -6,6 +6,7 @@ import random
 import time
 from config import PASSWORD, accounts  # 从 config 导入密码
 from login import input_main
+from apscheduler.schedulers.background import BackgroundScheduler
 
 # 初始化 Flask 应用
 app = Flask(__name__)
@@ -30,18 +31,16 @@ class SignInLog(db.Model):
     def __repr__(self):
         return f"<SignInLog {self.username} {self.status}>"
 
-# 修改生成随机时间函数，范围改为凌晨 2 点到 6 点
+# 修改生成随机时间函数，设置为每天随机一次
 def generate_random_run_time():
-    """生成从今天凌晨 2 点到 6 点之间的随机时间"""
+    """生成从今天凌晨2点到5点之间的随机时间"""
     now = datetime.now()
-    today_2am = datetime(now.year, now.month, now.day, 2, 0, 0)  # 今天凌晨 2 点
-    rand_secs = random.randint(0, 14400)  # 随机生成 0 到 14400 秒之间的时间（即 0 到 4 小时）
+    today_2am = datetime(now.year, now.month, now.day, 2, 0, 0)  # 今天凌晨2点
+    rand_secs = random.randint(0, 10800)  # 随机生成 0 到 10800 秒之间的时间（即3小时的秒数）
     scheduled = today_2am + timedelta(seconds=rand_secs)
     
-    if scheduled <= now:
-        scheduled = today_2am + timedelta(days=1, seconds=random.randint(0, 14400))
-    
     return scheduled
+
 
 def get_next_run_times():
     """生成每个账号的下次执行时间"""
@@ -140,7 +139,7 @@ def run_all():
 def auto_sign_in():
     """自动签到逻辑：如果签到状态为“系统繁忙”，则重新生成下次签到时间"""
     message = ""
-    
+
     # 遍历所有账号进行自动签到
     for acc in accounts.values():
         while True:  # 循环尝试，直到签到成功
@@ -151,7 +150,7 @@ def auto_sign_in():
                 print(f"系统繁忙，重新生成下次时间：{next_run_time}")
                 time.sleep(10)  # 等待 10 秒后再尝试
                 continue  # 重试
-            
+
             # 如果签到成功或失败，保存签到记录
             sign_in_log = SignInLog(
                 timestamp=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
@@ -165,8 +164,16 @@ def auto_sign_in():
     message = "自动签到已完成"
     return redirect(url_for('home', message=message))
 
-if __name__ == "__main__":
-    with app.app_context():
-        db.create_all() 
+# 启动 APScheduler
+def start_scheduler():
+    """启动调度任务"""
+    scheduler = BackgroundScheduler()
+    scheduled_time = generate_random_run_time()  # 获取随机执行时间
+    scheduler.add_job(auto_sign_in, 'date', run_date=scheduled_time)  # 调度任务在随机时间执行
+    scheduler.start()
 
+if __name__ == "__main__":
+    start_scheduler()  # 启动调度器
+    with app.app_context():
+        db.create_all()  # 确保数据库表存在
     app.run(host="0.0.0.0", port=2000)
